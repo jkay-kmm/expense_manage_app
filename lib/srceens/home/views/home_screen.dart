@@ -1,4 +1,4 @@
-import 'dart:js';
+
 import 'dart:math';
 
 import 'package:expense_manage_app/srceens/add_expense/views/add_expense.dart';
@@ -68,16 +68,18 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Container(
           width: 60,
           height: 60,
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-
-                Theme.of(context).colorScheme.tertiary,
-                Theme.of(context).colorScheme.secondary,
-                Theme.of(context).colorScheme.primary,
-              ],
-              transform: const GradientRotation(pi /4),
-            )
+          decoration: const BoxDecoration(
+            shape: BoxShape.circle,
+            // gradient: LinearGradient(
+            //   colors: [
+            //
+            //     Theme.of(context).colorScheme.tertiary,
+            //     Theme.of(context).colorScheme.secondary,
+            //     Theme.of(context).colorScheme.primary,
+            //   ],
+            //   transform: const GradientRotation(pi /4),
+            // )
+            color: Colors.black,
           ),
           child: const Icon(CupertinoIcons.add),
         ),

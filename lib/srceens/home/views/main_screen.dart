@@ -66,15 +66,15 @@ class MainScreen extends StatelessWidget {
               width: MediaQuery.of(context).size.width ,
               height: MediaQuery.of(context).size.width/2,
               decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
-
-                    Theme.of(context).colorScheme.tertiary,
-                    Theme.of(context).colorScheme.secondary,
-                    Theme.of(context).colorScheme.primary,
-                  ],
-                ),
-
+                // gradient: LinearGradient(
+                //   colors: [
+                //
+                //     Theme.of(context).colorScheme.tertiary,
+                //     Theme.of(context).colorScheme.secondary,
+                //     Theme.of(context).colorScheme.primary,
+                //   ],
+                // ),
+                color:const  Color(0xFF00B2E7),
                 borderRadius: BorderRadius.circular(25),
                 boxShadow: [
                   BoxShadow(
@@ -115,7 +115,7 @@ class MainScreen extends StatelessWidget {
                                 shape: BoxShape.circle
                               ),
                               child: const Center(
-                                child: Icon(CupertinoIcons.arrow_down,
+                                child: Icon(CupertinoIcons.arrow_up,
                                 size: 12,
                                 color: Colors.greenAccent,),
                               ),
