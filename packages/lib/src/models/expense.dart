@@ -1,40 +1,42 @@
-import '../entities/category_entity.dart';
+import 'package:expense_repository/expense_repository.dart';
 
-class Category{
-  String categoryId;
-  String name;
-  int totalExpenses;
-  String icon;
-  String color;
-  Category ({
-    required this.categoryId,
-    required this.name,
-    required this.totalExpenses,
-    required this.icon,
-    required this.color,
-});
-  static final empty = Category(
-      categoryId: '',
-      name: '',
-      totalExpenses: 0,
-      icon: '',
-      color: '');
-  CategoryEntity toEntity(){
-    return CategoryEntity(
-      categoryId : categoryId,
-      name : name,
-      totalExpenses: totalExpenses,
-      icon: icon,
-      color: color,
+import '../../expense_repository.dart';
+
+class Expense {
+  String expenseId;
+  Category category;
+  DateTime date;
+  int amount;
+
+  Expense({
+    required this.expenseId,
+    required this.category,
+    required this.date,
+    required this.amount,
+  });
+
+  static final empty = Expense(
+    expenseId: '',
+    category: Category.empty,
+    date: DateTime.now(),
+    amount: 0,
+  );
+
+  ExpenseEntity toEntity() {
+    return ExpenseEntity(
+      expenseId: expenseId,
+      category: category,
+      date: date,
+      amount: amount,
     );
   }
-  static Category fromEntity(CategoryEntity entity){
-    return Category(
-      categoryId : entity.categoryId,
-      name : entity.name,
-      totalExpenses: entity.totalExpenses,
-      icon: entity.icon,
-      color: entity.color,
+
+  static Expense fromEntity(ExpenseEntity entity) {
+    return Expense(
+      expenseId: entity.expenseId,
+      category: entity.category,
+      date: entity.date,
+      amount: entity.amount,
     );
   }
 }

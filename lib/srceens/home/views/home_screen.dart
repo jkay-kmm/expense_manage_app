@@ -15,10 +15,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
- // var wigetList = [
- //   MainScreen(),
- //   StatsScreen(),
- // ];
  int index = 0;
 
  late Color selectedItem = Colors.blue ;
@@ -29,7 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       // appBar: AppBar(),
       bottomNavigationBar: ClipRRect(
-        borderRadius: BorderRadius.vertical(
+        borderRadius:const  BorderRadius.vertical(
           top: Radius.circular(30),
         ),
         child: BottomNavigationBar(
@@ -39,12 +35,14 @@ class _HomeScreenState extends State<HomeScreen> {
            });
           },
         //   fixedColor: Colors.red,
-        // backgroundColor: Colors.white,
+        // backgroundColor: Colors.,
+          backgroundColor: const Color(0xFFCCFFFF),
           showSelectedLabels: false,
           showUnselectedLabels: false,
           elevation: 3,
           items: [
             BottomNavigationBarItem(
+
                 icon: Icon(
                     CupertinoIcons.home,
                   color :index == 0 ? selectedItem : unselectedItem,
@@ -70,21 +68,16 @@ class _HomeScreenState extends State<HomeScreen> {
           height: 60,
           decoration: const BoxDecoration(
             shape: BoxShape.circle,
-            // gradient: LinearGradient(
-            //   colors: [
-            //
-            //     Theme.of(context).colorScheme.tertiary,
-            //     Theme.of(context).colorScheme.secondary,
-            //     Theme.of(context).colorScheme.primary,
-            //   ],
-            //   transform: const GradientRotation(pi /4),
-            // )
-            color: Colors.black,
+            color: Color(0xFF99FFFF),
           ),
-          child: const Icon(CupertinoIcons.add),
+          child: const Icon(CupertinoIcons.add,
+          ),
+
         ),
+
       ) ,
-      body:index == 0 ? MainScreen() : StatsScreen()
+
+      body:index == 0 ? const MainScreen() : const StatsScreen()
 
     );
   }

@@ -1,10 +1,14 @@
-// import 'package:flutter/foundation.dart';
-//
-// // import'package:expense_repository/expense_repository.dart';
-// abstract class ExpenseRepository{
-//
-//   Future<void>createCategory(Category category);
-//
-//
-//   Future<List><Category>>getCategory();
-// }
+import 'package:expense_repository/expense_repository.dart';
+
+import '../expense_repository.dart';
+
+abstract class ExpenseRepository {
+
+  Future<void> createCategory(Category category);
+
+  Future<List<Category>> getCategory();
+
+  Future<void> createExpense(Expense expense);
+
+  Future<List<Expense>> getExpenses();
+}

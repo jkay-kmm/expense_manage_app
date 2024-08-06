@@ -1,4 +1,4 @@
-import 'dart:js';
+
 
 import 'package:expense_manage_app/data/data.dart';
 import 'package:flutter/cupertino.dart';
@@ -28,8 +28,9 @@ class MainScreen extends StatelessWidget {
                         Container(
                           width: 50,
                           height: 50,
-                          decoration:  BoxDecoration(
-                              shape: BoxShape.circle, color: Colors.yellow[700]),
+                          decoration: const  BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Color(0xFF66FFFF)),
                         ),
                         Icon(CupertinoIcons.person_fill,
                         color: Theme.of(context).colorScheme.outline,)
@@ -66,14 +67,6 @@ class MainScreen extends StatelessWidget {
               width: MediaQuery.of(context).size.width ,
               height: MediaQuery.of(context).size.width/2,
               decoration: BoxDecoration(
-                // gradient: LinearGradient(
-                //   colors: [
-                //
-                //     Theme.of(context).colorScheme.tertiary,
-                //     Theme.of(context).colorScheme.secondary,
-                //     Theme.of(context).colorScheme.primary,
-                //   ],
-                // ),
                 color:const  Color(0xFF00B2E7),
                 borderRadius: BorderRadius.circular(25),
                 boxShadow: [
