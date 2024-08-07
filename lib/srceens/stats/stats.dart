@@ -1,8 +1,6 @@
 import 'package:expense_manage_app/srceens/stats/chart.dart';
 import 'package:fl_chart/fl_chart.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 
 class StatsScreen extends StatelessWidget {
@@ -16,12 +14,15 @@ class StatsScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            const Text(
               'Transactions',
               style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold
               ),
+            ),
+            Container(
+
             ),
             const SizedBox(height: 20,),
             Container(
@@ -31,8 +32,8 @@ class StatsScreen extends StatelessWidget {
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(12)
               ),
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(12, 20, 12, 12),
+              child: const Padding(
+                padding: EdgeInsets.fromLTRB(12, 20, 12, 12),
                 child: MyChart(),
               )
             )

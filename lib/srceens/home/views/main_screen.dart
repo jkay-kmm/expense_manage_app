@@ -1,15 +1,21 @@
-
-
 import 'package:expense_manage_app/data/data.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class MainScreen extends StatelessWidget {
+class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
 
   @override
+  State<MainScreen> createState() => _MainScreenState();
+}
+
+class _MainScreenState extends State<MainScreen> {
+  @override
   Widget build(BuildContext context) {
+    // Calculate the total amount
+    double totalAmount = calculateTotalAmount();
+
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
@@ -28,12 +34,14 @@ class MainScreen extends StatelessWidget {
                         Container(
                           width: 50,
                           height: 50,
-                          decoration: const  BoxDecoration(
+                          decoration: const BoxDecoration(
                               shape: BoxShape.circle,
                               color: Color(0xFF66FFFF)),
                         ),
-                        Icon(CupertinoIcons.person_fill,
-                        color: Theme.of(context).colorScheme.outline,)
+                        Icon(
+                          CupertinoIcons.person_fill,
+                          color: Theme.of(context).colorScheme.outline,
+                        )
                       ],
                     ),
                     const SizedBox(
@@ -49,49 +57,52 @@ class MainScreen extends StatelessWidget {
                               fontWeight: FontWeight.w600,
                               color: Theme.of(context).colorScheme.outline),
                         ),
-                        Text("Chao Anh Trung",
+                        Text(
+                          "Chao Anh Trung",
                           style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
-                              color: Theme.of(context).colorScheme.onBackground),)
+                              color: Theme.of(context).colorScheme.onBackground),
+                        )
                       ],
                     ),
-
                   ],
                 ),
-                IconButton(onPressed: (){}, icon: Icon(CupertinoIcons.settings))
+                IconButton(
+                    onPressed: () {},
+                    icon: const Icon(CupertinoIcons.settings))
               ],
             ),
             const SizedBox(height: 20,),
             Container(
-              width: MediaQuery.of(context).size.width ,
-              height: MediaQuery.of(context).size.width/2,
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.width / 2,
               decoration: BoxDecoration(
-                color:const  Color(0xFF00B2E7),
-                borderRadius: BorderRadius.circular(25),
-                boxShadow: [
-                  BoxShadow(
-                    blurRadius: 5,
-                    color: Colors.grey.shade400,
-                    offset:const  Offset(5,5)
-                  )
-                ]
-              ),
+                  color: const Color(0xFF00B2E7),
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                    BoxShadow(
+                        blurRadius: 5,
+                        color: Colors.grey.shade400,
+                        offset: const Offset(5, 5))
+                  ]),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text("Total Balance", style: TextStyle(
-                    fontSize: 20,
-                    color: Colors.white,
-                    fontWeight: FontWeight.w600
-                  ),
+                  const Text(
+                    "Total Balance",
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600),
                   ),
                   const SizedBox(height: 12,),
-                  const Text("\$48.000",style: TextStyle(
-                    fontSize: 35,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold
-                  ),
+                  Text(
+                    "\$${totalAmount.toStringAsFixed(2)}",
+                    style: const TextStyle(
+                        fontSize: 35,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold),
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
@@ -102,15 +113,16 @@ class MainScreen extends StatelessWidget {
                           children: [
                             Container(
                               width: 25,
-                                height: 25,
-                              decoration:const  BoxDecoration(
-                                color: Colors.white30,
-                                shape: BoxShape.circle
-                              ),
+                              height: 25,
+                              decoration: const BoxDecoration(
+                                  color: Colors.white30,
+                                  shape: BoxShape.circle),
                               child: const Center(
-                                child: Icon(CupertinoIcons.arrow_up,
-                                size: 12,
-                                color: Colors.greenAccent,),
+                                child: Icon(
+                                  CupertinoIcons.arrow_up,
+                                  size: 12,
+                                  color: Colors.greenAccent,
+                                ),
                               ),
                             ),
                             const SizedBox(
@@ -119,19 +131,20 @@ class MainScreen extends StatelessWidget {
                             const Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text('Income',
+                                Text(
+                                  'Income',
                                   style: TextStyle(
                                       fontSize: 14,
                                       color: Colors.white,
-                                      fontWeight: FontWeight.w400
-                                  ),
+                                      fontWeight: FontWeight.w400),
                                 ),
-                                Text('\$20.000',
-                                    style: TextStyle(
-                                    fontSize: 14,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w500
-                                ),)
+                                Text(
+                                  '\$20.000',
+                                  style: TextStyle(
+                                      fontSize: 14,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w500),
+                                )
                               ],
                             )
                           ],
@@ -141,14 +154,15 @@ class MainScreen extends StatelessWidget {
                             Container(
                               width: 25,
                               height: 25,
-                              decoration:const  BoxDecoration(
+                              decoration: const BoxDecoration(
                                   color: Colors.white30,
-                                  shape: BoxShape.circle
-                              ),
+                                  shape: BoxShape.circle),
                               child: const Center(
-                                child: Icon(CupertinoIcons.arrow_down,
+                                child: Icon(
+                                  CupertinoIcons.arrow_down,
                                   size: 12,
-                                  color: Colors.red,),
+                                  color: Colors.red,
+                                ),
                               ),
                             ),
                             const SizedBox(
@@ -157,19 +171,20 @@ class MainScreen extends StatelessWidget {
                             const Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text('Expenses',
+                                Text(
+                                  'Expenses',
                                   style: TextStyle(
                                       fontSize: 14,
                                       color: Colors.white,
-                                      fontWeight: FontWeight.w400
-                                  ),
+                                      fontWeight: FontWeight.w400),
                                 ),
-                                Text('\$50.000',
+                                Text(
+                                  '\$50.000',
                                   style: TextStyle(
-                                    fontSize: 14,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w500
-                                ),)
+                                      fontSize: 14,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w500),
+                                )
                               ],
                             )
                           ],
@@ -190,103 +205,101 @@ class MainScreen extends StatelessWidget {
                     style: TextStyle(
                         fontSize: 16,
                         color: Theme.of(context).colorScheme.onBackground,
-                        fontWeight: FontWeight.bold
-                    )
-                ),
+                        fontWeight: FontWeight.bold)),
                 GestureDetector(
-
-                  onTap: (){
-
-                  },
+                  onTap: () {},
                   child: Text('View All',
                       style: TextStyle(
                           fontSize: 14,
                           color: Theme.of(context).colorScheme.outline,
-                          fontWeight: FontWeight.w400
-                      )
-                  ),
+                          fontWeight: FontWeight.w400)),
                 ),
-
               ],
             ),
             const SizedBox(height: 20,),
             Expanded(
-              child: ListView.builder(
+            child: ListView.builder(
                   itemCount: transactionData.length,
-                  itemBuilder: (context, int i){
-                return Padding(
-                  padding: const EdgeInsets.only(bottom: 16),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(12)
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Row(
-                        mainAxisAlignment:MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            // mainAxisAlignment:MainAxisAlignment.spaceBetween,
+                  itemBuilder: (context, int i) {
+                    return Padding(
+                      padding: const EdgeInsets.only(bottom: 16),
+                      child: Container(
+                      decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(12)),
+                        child: Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Stack(
-                                alignment: Alignment.center,
+                              Row(
+                                // mainAxisAlignment:MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Container(
-                                    width: 50,
-                                    height: 50,
-                                    decoration:  BoxDecoration(
-                                      color: transactionData[i]['color'],
-                                      shape: BoxShape.circle
-                                    ),
+                                  Stack(
+                                    alignment: Alignment.center,
+                                    children: [
+                                      Container(
+                                        width: 50,
+                                        height: 50,
+                                        decoration: BoxDecoration(
+                                            color: transactionData[i]['color'],
+                                            shape: BoxShape.circle),
+                                      ),
+                                      transactionData[i]['icon'],
+                                      // const SizedBox(width: 12,),
+                                      // const Icon(Icons.food_bank,
+                                      // color: Colors.white,)
+                                    ],
                                   ),
-                                  transactionData[i]['icon'],
-                                  // const SizedBox(width: 12,),
-                                  // const Icon(Icons.food_bank,
-                                  // color: Colors.white,)
+                                  const SizedBox(width: 12,),
+                                  Text(transactionData[i]['name'],
+                                      style: TextStyle(
+                                          fontSize: 14,
+                                          color: Theme.of(context)
+                                              .colorScheme
+                                              .onBackground,
+                                          fontWeight: FontWeight.w500)),
                                 ],
                               ),
-                              const SizedBox(width: 12,),
-                              Text(transactionData[i]['name'],
-                                  style: TextStyle(
-                                      fontSize: 14,
-                                      color: Theme.of(context).colorScheme.onBackground,
-                                      fontWeight: FontWeight.w500
-                                  )
-                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: [
+                                  Text(transactionData[i]['totalAmount'],
+                                      style: TextStyle(
+                                          fontSize: 14,
+                                          color: Theme.of(context)
+                                              .colorScheme
+                                              .onBackground,
+                                          fontWeight: FontWeight.w500)),
+                                  Text(transactionData[i]['date'],
+                                      style: TextStyle(
+                                          fontSize: 14,
+                                          color: Theme.of(context)
+                                              .colorScheme
+                                              .outline,
+                                          fontWeight: FontWeight.w500)),
+                                ],
+                              )
                             ],
                           ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.end,
-                            children: [
-                              Text(transactionData[i]['totalAmount'],
-                                  style: TextStyle(
-                                      fontSize: 14,
-                                      color: Theme.of(context).colorScheme.onBackground,
-                                      fontWeight: FontWeight.w500
-                                  )
-                              ),
-                              Text(transactionData[i]['date'],
-                                  style: TextStyle(
-                                      fontSize: 14,
-                                      color: Theme.of(context).colorScheme.outline,
-                                      fontWeight: FontWeight.w500
-                                  )
-                              ),
-
-                            ],
-                          )
-                        ],
+                        ),
                       ),
-                    ),
-                  ),
-                );
-              }
-              ),
+                    );
+                  }),
             )
           ],
         ),
       ),
     );
+  }
+
+  // Calculate total amount from transactionData
+  double calculateTotalAmount() {
+    double total = 0.0;
+    for (var transaction in transactionData) {
+      total += double.parse(
+          transaction['totalAmount'].replaceAll('\$', '').replaceAll(',', ''));
+    }
+    return total;
   }
 }

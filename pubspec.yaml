@@ -18,6 +18,7 @@ dependencies:
   firebase_core: ^3.3.0
   uuid: ^4.4.2
   provider: ^6.1.2
+  cloud_firestore: ^5.2.1
   # Các dependencies khác của dự án gốc
   expense_repository:
     path: packages/expense_repository

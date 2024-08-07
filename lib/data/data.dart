@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 List<Map<String, dynamic>> transactionData = [
   {
-    'icon': const  FaIcon(FontAwesomeIcons.burger),
+    'icon': const  FaIcon(FontAwesomeIcons.moneyBill),
     'color': Colors.yellow[700],
-    'name': 'Food',
-    'totalAmount': '-\$45.00',
+    'name': 'Salary',
+    'totalAmount': '\$450.000',
     'date' :'Today',
   },
   {

@@ -233,31 +233,6 @@ class _AddExpenseState extends State<AddExpense> {
                                                         ),
                                                     )
                                                     : Container(),
-                                                // child: Padding(
-                                                //   padding: const EdgeInsets.all(8.0),
-                                                //   child: ListView.builder(
-                                                //       itemCount: state.categories.length,
-                                                //       itemBuilder: (context, int i) {
-                                                //         return Card(
-                                                //           child: ListTile(
-                                                //             onTap: () {
-                                                //               setState(() {
-                                                //                 expense.category = state.categories[i];
-                                                //                 categoryController.text = expense.category.name;
-                                                //               });
-                                                //             },
-                                                //             leading: Image.asset(
-                                                //               'assets/${state.categories[i].icon}.png',
-                                                //               scale: 2,
-                                                //             ),
-                                                //             title: Text(state.categories[i].name),
-                                                //             tileColor: Color(state.categories[i].color),
-                                                //             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-                                                //           ),
-                                                //         );
-                                                //       }
-                                                //   )
-                                                // )
                                                   const SizedBox(
                                                   height: 16,
                                                 ),
@@ -297,7 +272,6 @@ class _AddExpenseState extends State<AddExpense> {
                                                                                 'date': dateController.text,
                                                                               };
                                                                               Navigator.pop(context, expenseData);
-                                                                              print(expenseData);
                                                                         },
                                                                         style: TextButton.styleFrom(
                                                                             backgroundColor:

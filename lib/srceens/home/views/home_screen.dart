@@ -58,8 +58,11 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       floatingActionButtonLocation:FloatingActionButtonLocation.centerDocked ,
       floatingActionButton:FloatingActionButton(
-        onPressed: (){
-          Navigator.push(context, MaterialPageRoute<void>(builder: (BuildContext context) => const AddExpense())
+        onPressed: () async {
+
+          final expenseData = await Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const AddExpense()),
           );
       },
         shape:const  CircleBorder(),
